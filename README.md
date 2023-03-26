@@ -1,5 +1,5 @@
-# dockerchat
-A copy of the mtchat repo with updated docker files.
+# chatgame
+A copy of the mtchat repo.  
 
 This repo contains programs to implement a multi-threaded TCP chat server and client
 
@@ -7,6 +7,8 @@ This repo contains programs to implement a multi-threaded TCP chat server and cl
 * ClientListener.java receives responses from the server and displays them
 * MtServer.java listens for client connections and creates a ClientHandler for each new client
 * ClientHandler.java receives messages from a client and relays it to the other clients.
+
+Use these files as a stating point do develop a trivia game.  
 
 
 ## Identifying Information
