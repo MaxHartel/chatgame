@@ -24,25 +24,25 @@ import java.util.ArrayList;
 
 public class MtServer {
   // Maintain list of all client sockets for broadcast
-  private ArrayList<Socket> socketList;
+  private ArrayList<Client> clientList;
 
   public MtServer() {
-    socketList = new ArrayList<Socket>();
+    clientList = new ArrayList<Client>();
   }
 
   private void getConnection() {
     // Wait for a connection from the client
     try {
-      System.out.println("Waiting for client connections on port 7654.");
-      ServerSocket serverSock = new ServerSocket(7654);
+      System.out.println("Waiting for client connections on port 9007.");
+      ServerSocket serverSock = new ServerSocket(9007);
       // This is an infinite loop, the user will have to shut it down
       // using control-c
       while (true) {
         Socket connectionSock = serverSock.accept();
         // Add this socket to the list
-        socketList.add(connectionSock);
+        clientList.add(new Client(connectionSock, ""));
         // Send to ClientHandler the socket and arraylist of all sockets
-        ClientHandler handler = new ClientHandler(connectionSock, this.socketList);
+        ClientHandler handler = new ClientHandler(connectionSock, this.clientList);
         Thread theThread = new Thread(handler);
         theThread.start();
       }

@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.Scanner;
 
+
 /**
  * MTClient.java
  * 
@@ -31,7 +32,7 @@ public class MtClient {
   public static void main(String[] args) {
     try {
       String hostname = "localhost";
-      int port = 7654;
+      int port = 9007;
 
       System.out.println("Connecting to server on port " + port);
       Socket connectionSock = new Socket(hostname, port);

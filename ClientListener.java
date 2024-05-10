@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class ClientListener implements Runnable {
   private Socket connectionSock = null;
 
-  ClientListener(Socket sock) {
+  public ClientListener(Socket sock) {
     this.connectionSock = sock;
   }
 
