@@ -28,18 +28,22 @@ public class ClientListener implements Runnable {
     try {
       BufferedReader serverInput = new BufferedReader(
           new InputStreamReader(connectionSock.getInputStream()));
-      while (true) {
+
+      String serverText = serverInput.readLine();
+      if (serverInput != null){
+        System.out.println(serverText);
+      }
+      while ((serverText) != null) {
         // Get data sent from the server
-        String serverText = serverInput.readLine();
-        if (serverInput != null) {
+        serverText = serverInput.readLine();
+        if (serverInput != null){
           System.out.println(serverText);
-        } else {
-          // Connection was lost
-          System.out.println("Closing connection for socket " + connectionSock);
-          connectionSock.close();
-          break;
         }
       }
+
+      // Connection was lost
+      System.out.println("Closing connection for socket " + connectionSock);
+      connectionSock.close();
     } catch (Exception e) {
       System.out.println("Error: " + e.toString());
     }

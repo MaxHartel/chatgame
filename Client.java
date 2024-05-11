@@ -10,12 +10,14 @@ public class Client {
     public int score;
 
     public boolean host;
-    public int id = 0;
+
+    public long timeStamp = 0;
   
   
-    private int genID(){
-        return id++;
-    }
+    public long getCreationTime() {
+      System.out.println(System.currentTimeMillis());
+      return System.currentTimeMillis();
+  }
   
     public Client(Socket sock,  String username) {
   
@@ -27,7 +29,7 @@ public class Client {
 
       this.host = false;
 
-      this.id = genID();
+      this.timeStamp = getCreationTime();
   
     }
   
